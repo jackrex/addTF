@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>添加UDID</title>
+    <script language="javascript">
+    function check() {
+        var udidValue = document.getElementById('udid').value
+        var phoneValue = document.getElementById('phone').value
+
+        if(phoneValue == ""){
+            alert("请输入手机名称")
+            return false
+        }
+
+        if(udidValue.length != 40){
+            alert("udid 长度不够，应该是40位，请输入正确的udid")
+            return false
+        }
+
+        alert('正在添加，正在查询苹果服务器，请耐心等待结果，不要重复点击, 点击确认开始')
+        return true
+    }
+    </script>
+</head>
+<body>
+<form method="post" action="addTF">
+    <p>请填写英文名称</p>
+    <p>iPhone 名称： <input id="phone" type="text" name="email"/></p>
+    <p>UDID 串: <input id="udid" type="text" name="udid"></p>
+    <p>(不知道udid 请用iPhone 访问 http://fir.im/udid 获取)</p>
+    <input type="submit" value="提交" id="submit" onclick="return check()"/>
+</form>
+
+<!--6EDF05E91A37428EAF0657548057E8B4F3AF76F0-->
+</body>
+</html>
