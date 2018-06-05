@@ -6,6 +6,7 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from Naked.toolshed.shell import muterun_rb
+import os
 
 app = Flask(__name__)
 
@@ -24,9 +25,13 @@ def author():
 def call_add_tf_ruby():
     email = request.form['email']
     print ('email' + email)
-    success = muterun_rb('udid.rb', email)
+    #success = muterun_rb('udid.rb', email)
+    cmd = "fastlane pilot add " + email + " -a com.gotokeep.keep.intl --username keepvendors@gmail.com -g BetaUsers"
+    success = os.system(cmd)
+    print('returned value:', success)
+
     global result_str
-    if success.exitcode == 0:
+    if success == 0:
         print ('success')
         result_str = u'提交成功:'
     else:
