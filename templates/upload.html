@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>添加UDID</title>
+    <title>添加TF Users</title>
     <script language="javascript">
     function check() {
-        var udidValue = document.getElementById('udid').value
-        var phoneValue = document.getElementById('phone').value
+        var phoneValue = document.getElementById('email').value
 
         if(phoneValue == ""){
-            alert("请输入手机名称")
+            alert("请输入邮箱")
             return false
         }
-
-        if(udidValue.length != 40){
-            alert("udid 长度不够，应该是40位，请输入正确的udid")
-            return false
-        }
-
         alert('正在添加，正在查询苹果服务器，请耐心等待结果，不要重复点击, 点击确认开始')
         return true
     }
@@ -24,10 +17,8 @@
 </head>
 <body>
 <form method="post" action="addTF">
-    <p>请填写英文名称</p>
-    <p>iPhone 名称： <input id="phone" type="text" name="email"/></p>
-    <p>UDID 串: <input id="udid" type="text" name="udid"></p>
-    <p>(不知道udid 请用iPhone 访问 http://fir.im/udid 获取)</p>
+    <p>请输入 Testflight 邮箱：</p>
+    <p>邮箱： <input id="email" type="text" name="email"/></p>
     <input type="submit" value="提交" id="submit" onclick="return check()"/>
 </form>
 

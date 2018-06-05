@@ -33,10 +33,10 @@ def call_add_tf_ruby():
     global result_str
     if success == 0:
         print ('success')
-        result_str = u'提交成功:'
+        result_str = u'提交成功'
     else:
         print ('error \n')
-        result_str = u'提交失败:'
+        result_str = u'提交失败,联系 jackrex '
 
     return render_template('result.html', result=result_str)
 
